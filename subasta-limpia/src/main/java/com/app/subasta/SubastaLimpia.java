@@ -1,0 +1,90 @@
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ */
+
+/*package com.app.subasta;
+
+
+ public class SubastaLimpia {
+
+    public static void main(String[] args) {
+        System.out.println("Hello World!");
+    }
+} 
+*/
+
+package com.app.subasta;
+
+import com.app.subasta.dominio.usuario.Usuario; // Importamos la clase Usuario
+import com.app.subasta.infraestructura.persistencia.UsuarioRepositorioImpl; // Importamos el repositorio real
+
+public class SubastaLimpia {
+
+    public static void main(String[] args) {
+        
+                // PROBANDO EL METODO GUARDAR 
+        // Creamos un nuevo objeto Usuario con datos de prueba
+        Usuario nuevoUsuario = new Usuario(
+            "11123456789",  // Cedula
+            "Carlos", // Nombre
+            "Florez",// Apellidos
+            "Florez@gmail.com.com",// Email
+            "3021234567" // Teléfono
+        );
+        
+
+             //PROBANDO EL METODO BUSCAR POR CEDULA
+        // Creamos una instancia del repositorio real que se conecta a la base de datos
+        UsuarioRepositorioImpl repositorio = new UsuarioRepositorioImpl();
+        Usuario encontrado = repositorio.buscarPorCedula("123456789");
+
+        if (encontrado != null) {
+            System.out.println("+-+-+Usuario encontrado: " + encontrado);
+        } else {
+            System.out.println("-+-+-+ Usuario no encontrado -+-+-+-");
+}
+             //PROBANDO METODO LISTAR TODOS
+        // Llamamos al método guardar() para registrar al usuario en la base de datos
+        repositorio.guardar(nuevoUsuario);
+        
+        System.out.println(" Usuarios registrados:");
+        java.util.List<Usuario> usuarios = repositorio.listarTodos();
+
+        for (Usuario u : usuarios) {
+        System.out.println("- " + u);
+}
+        //PROBANDO METODO DE ACTUALIZAR
+        Usuario usuarioActualizado = new Usuario(
+        "123456789",      // Cedula (misma de antes)
+        "Malver",         // Nuevo nombre (o igual)
+        "Castro Argumedo",   // Nuevo apellido
+        "nuevoemail@gmail.com", // Nuevo email
+        "3119998877"      // Nuevo teléfono
+                
+);
+        repositorio.actualizar(usuarioActualizado);
+
+
+        // Verificamos nuevamente que se haya actualizado
+        Usuario actualizado = repositorio.buscarPorCedula("123456789");
+        System.out.println(" Datos actualizados: " + actualizado);
+        
+        
+        //PROBANDO EL METODO ELIMINAR
+        repositorio.eliminar("11111");
+        
+        //AQUI VOLVEMOS A MOSTRAR PARA VERIFICAR QUE FUE ELIMINADO 
+        Usuario eliminado = repositorio.buscarPorCedula("11111");
+            if (eliminado == null) {
+                System.out.println(" Confirmacion: el usuario fue eliminado.");
+            } else {
+                System.out.println(" El usuario aún existe: " + eliminado);
+                }
+
+        
+               
+
+    }
+    
+    
+}
