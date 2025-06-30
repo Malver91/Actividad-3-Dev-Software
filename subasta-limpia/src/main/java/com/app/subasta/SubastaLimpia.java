@@ -1,17 +1,4 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- */
 
-/*package com.app.subasta;
-
-
- public class SubastaLimpia {
-
-    public static void main(String[] args) {
-        System.out.println("Hello World!");
-    }
-} 
-*/
 
 package com.app.subasta;
 

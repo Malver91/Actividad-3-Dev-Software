@@ -1,0 +1,5 @@
+# Created at 2025-06-30T00:45:29.399
+Boot Manifest-JAR contains absolute paths in classpath 'D:\MALVER\UNIVERSIDAD\UDC\INGENIERIA DE SOFTWARE\III SEMESTRE\DESARROLLO DE SOFTWARE\UNIDAD 3\subasta-limpia\target\test-classes'
+Hint: <argLine>-Djdk.net.URLClassPath.disableClassPathURLCheck=true</argLine>
+'other' has different root
+
