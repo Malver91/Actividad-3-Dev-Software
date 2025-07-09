@@ -1,7 +1,11 @@
 com\app\subasta\infraestructura\persistencia\UsuarioConsultaRepositorioImpl.class
 com\app\subasta\dominio\usuario\UsuarioRepositorio.class
+com\app\subasta\aplicacion\articulo\servicio\ListarArticulosPorCategoriaCasoUso.class
 com\app\subasta\dominio\usuario\Usuario.class
+com\app\subasta\aplicacion\articulo\puerto\ArticuloConsultaRepositorio.class
 com\app\subasta\aplicacion\usuario\puerto\UsuarioConsultaRepositorio.class
+com\app\subasta\infraestructura\persistencia\ArticuloConsultaRepositorioImpl.class
 com\app\subasta\SubastaLimpia.class
 com\app\subasta\aplicacion\usuario\servicio\ConsultarTotalUsuariosCasoUso.class
 com\app\subasta\infraestructura\persistencia\UsuarioRepositorioImpl.class
+com\app\subasta\dominio\articulo\Articulo.class

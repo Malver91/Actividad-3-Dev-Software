@@ -5,6 +5,12 @@ package com.app.subasta;
 import com.app.subasta.dominio.usuario.Usuario; // Importamos la clase Usuario
 import com.app.subasta.infraestructura.persistencia.UsuarioRepositorioImpl; // Importamos el repositorio real
 import com.app.subasta.infraestructura.persistencia.UsuarioConsultaRepositorioImpl;
+import com.app.subasta.aplicacion.articulo.servicio.ListarArticulosPorCategoriaCasoUso;
+import com.app.subasta.infraestructura.persistencia.ArticuloConsultaRepositorioImpl;
+import com.app.subasta.dominio.articulo.Articulo;
+
+import java.util.List;
+import java.util.Scanner;
 
 public class SubastaLimpia {
 
@@ -81,8 +87,33 @@ public class SubastaLimpia {
 
          // 3. Ejecutamos el caso de uso y mostramos el resultado
          int totalUsuarios = casoUso.ejecutar();
-         System.out.println("Total de usuarios registrados: " + totalUsuarios);      
-            
+         System.out.println("Total de usuarios registrados: " + totalUsuarios); 
+         
+         
+         System.out.println("\n===== CONSULTA #2: Listar artículos por categoría =====");
+         Scanner scanner = new Scanner(System.in);
+         System.out.print("Ingrese la categoría (Ej: Electrónica): ");
+         String categoria = scanner.nextLine();
+
+         // Instanciamos el repositorio (adaptador JDBC)
+         ArticuloConsultaRepositorioImpl repositorioArticulo = new ArticuloConsultaRepositorioImpl();
+
+         // Creamos el caso de uso y lo invocamos
+         ListarArticulosPorCategoriaCasoUso casoUsoArticulos = new ListarArticulosPorCategoriaCasoUso(repositorioArticulo);
+         List<Articulo> articulos = casoUsoArticulos.ejecutar(categoria);
+
+         // Mostramos el resultado
+        if (articulos.isEmpty()) {
+            System.out.println("️ No se encontraron artículos en la categoría: " + categoria);
+        } else {
+            System.out.println(" Artículos encontrados en la categoría " + categoria + ":");
+            for (Articulo a : articulos) {
+                System.out.println(" - ID: " + a.getId() + " | Nombre: " + a.getNombre() +
+                                   " | Descripción: " + a.getDescripcion() +
+                                   " | Precio: $" + a.getPrecioInicial());
+            }
+        }
+              
     }
     
      

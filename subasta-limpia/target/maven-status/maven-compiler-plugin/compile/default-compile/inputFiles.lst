@@ -1,7 +1,11 @@
 C:\Users\mario\Actividad-3-Dev-Software\subasta-limpia\src\main\java\com\app\subasta\SubastaLimpia.java
 C:\Users\mario\Actividad-3-Dev-Software\subasta-limpia\src\main\java\com\app\subasta\infraestructura\persistencia\UsuarioRepositorioImpl.java
 C:\Users\mario\Actividad-3-Dev-Software\subasta-limpia\src\main\java\com\app\subasta\dominio\usuario\UsuarioRepositorio.java
+C:\Users\mario\Actividad-3-Dev-Software\subasta-limpia\src\main\java\com\app\subasta\infraestructura\persistencia\ArticuloConsultaRepositorioImpl.java
+C:\Users\mario\Actividad-3-Dev-Software\subasta-limpia\src\main\java\com\app\subasta\aplicacion\articulo\servicio\ListarArticulosPorCategoriaCasoUso.java
 C:\Users\mario\Actividad-3-Dev-Software\subasta-limpia\src\main\java\com\app\subasta\aplicacion\usuario\puerto\UsuarioConsultaRepositorio.java
 C:\Users\mario\Actividad-3-Dev-Software\subasta-limpia\src\main\java\com\app\subasta\aplicacion\usuario\servicio\ConsultarTotalUsuariosCasoUso.java
 C:\Users\mario\Actividad-3-Dev-Software\subasta-limpia\src\main\java\com\app\subasta\dominio\usuario\Usuario.java
+C:\Users\mario\Actividad-3-Dev-Software\subasta-limpia\src\main\java\com\app\subasta\dominio\articulo\Articulo.java
 C:\Users\mario\Actividad-3-Dev-Software\subasta-limpia\src\main\java\com\app\subasta\infraestructura\persistencia\UsuarioConsultaRepositorioImpl.java
+C:\Users\mario\Actividad-3-Dev-Software\subasta-limpia\src\main\java\com\app\subasta\aplicacion\articulo\puerto\ArticuloConsultaRepositorio.java
