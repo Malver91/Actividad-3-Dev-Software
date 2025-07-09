@@ -1,4 +1,4 @@
-
+    
 
 package com.app.subasta;
 
@@ -8,6 +8,7 @@ import com.app.subasta.infraestructura.persistencia.UsuarioConsultaRepositorioIm
 import com.app.subasta.aplicacion.articulo.servicio.ListarArticulosPorCategoriaCasoUso;
 import com.app.subasta.infraestructura.persistencia.ArticuloConsultaRepositorioImpl;
 import com.app.subasta.dominio.articulo.Articulo;
+import com.app.subasta.aplicacion.usuario.servicio.ConsultarUsuariosConMasDe10SubastasCasoUso;
 
 import java.util.List;
 import java.util.Scanner;
@@ -90,6 +91,8 @@ public class SubastaLimpia {
          System.out.println("Total de usuarios registrados: " + totalUsuarios); 
          
          
+         
+         //CONSULTA 2/50: LISTAR ARTICULOS POR CATEGORIA
          System.out.println("\n===== CONSULTA #2: Listar artículos por categoría =====");
          Scanner scanner = new Scanner(System.in);
          System.out.print("Ingrese la categoría (Ej: Electrónica): ");
@@ -113,6 +116,30 @@ public class SubastaLimpia {
                                    " | Precio: $" + a.getPrecioInicial());
             }
         }
+        
+        //CONSULTA 3/50: LISTAR USUARIOS COM MAS DE 10 PUBLICACIONES
+        System.out.println("\n===== CONSULTA #3: Usuarios con más de 10 subastas publicadas =====");
+
+    // 1. Instanciamos el adaptador que implementa UsuarioConsultaRepositorio
+    UsuarioConsultaRepositorioImpl repoConsultaUsuarios = new UsuarioConsultaRepositorioImpl();
+
+    // 2. Creamos el caso de uso con ese repositorio
+    com.app.subasta.aplicacion.usuario.servicio.ConsultarUsuariosConMasDe10SubastasCasoUso casoUsoConsulta3 =
+        new com.app.subasta.aplicacion.usuario.servicio.ConsultarUsuariosConMasDe10SubastasCasoUso(repoConsultaUsuarios);
+
+    // 3. Ejecutamos el caso de uso
+    List<Usuario> usuariosConSubastas = casoUsoConsulta3.ejecutar();
+
+    // 4. Mostramos los resultados
+    if (usuariosConSubastas.isEmpty()) {
+        System.out.println("⚠️ No hay usuarios con más de 10 subastas.");
+    } else {
+        System.out.println("✅ Usuarios con más de 10 subastas publicadas:");
+        for (Usuario u : usuariosConSubastas) {
+            System.out.println(" - Nombre: " + u.getNombre() + " | Email: " + u.getEmail());
+        }
+    }
+
               
     }
     

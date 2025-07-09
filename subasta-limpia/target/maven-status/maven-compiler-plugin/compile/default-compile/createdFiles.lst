@@ -4,6 +4,7 @@ com\app\subasta\aplicacion\articulo\servicio\ListarArticulosPorCategoriaCasoUso.
 com\app\subasta\dominio\usuario\Usuario.class
 com\app\subasta\aplicacion\articulo\puerto\ArticuloConsultaRepositorio.class
 com\app\subasta\aplicacion\usuario\puerto\UsuarioConsultaRepositorio.class
+com\app\subasta\aplicacion\usuario\servicio\ConsultarUsuariosConMasDe10SubastasCasoUso.class
 com\app\subasta\infraestructura\persistencia\ArticuloConsultaRepositorioImpl.class
 com\app\subasta\SubastaLimpia.class
 com\app\subasta\aplicacion\usuario\servicio\ConsultarTotalUsuariosCasoUso.class

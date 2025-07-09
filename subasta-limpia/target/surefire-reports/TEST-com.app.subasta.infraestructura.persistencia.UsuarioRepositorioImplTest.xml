@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report-3.0.xsd" version="3.0" name="com.app.subasta.infraestructura.persistencia.UsuarioRepositorioImplTest" time="2.308" tests="4" errors="0" skipped="0" failures="0">
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report-3.0.xsd" version="3.0" name="com.app.subasta.infraestructura.persistencia.UsuarioRepositorioImplTest" time="2.434" tests="4" errors="0" skipped="0" failures="0">
   <properties>
     <property name="java.specification.version" value="21"/>
     <property name="sun.cpu.isalist" value="amd64"/>
@@ -15,7 +15,7 @@
     <property name="user.country" value="CO"/>
     <property name="sun.java.launcher" value="SUN_STANDARD"/>
     <property name="sun.boot.library.path" value="C:\Program Files\Java\jdk-21\bin"/>
-    <property name="sun.java.command" value="C:\Users\mario\AppData\Local\Temp\surefire9024535076673675476\surefirebooter-20250709144718876_3.jar C:\Users\mario\AppData\Local\Temp\surefire9024535076673675476 2025-07-09T14-47-18_449-jvmRun1 surefire-20250709144718876_1tmp surefire_0-20250709144718876_2tmp"/>
+    <property name="sun.java.command" value="C:\Users\mario\AppData\Local\Temp\surefire7689166647732631245\surefirebooter-20250709163404318_3.jar C:\Users\mario\AppData\Local\Temp\surefire7689166647732631245 2025-07-09T16-34-03_583-jvmRun1 surefire-20250709163404318_1tmp surefire_0-20250709163404318_2tmp"/>
     <property name="jdk.debug" value="release"/>
     <property name="surefire.test.class.path" value="C:\Users\mario\Actividad-3-Dev-Software\subasta-limpia\target\test-classes;C:\Users\mario\Actividad-3-Dev-Software\subasta-limpia\target\classes;C:\Users\mario\.m2\repository\junit\junit\4.13.2\junit-4.13.2.jar;C:\Users\mario\.m2\repository\org\hamcrest\hamcrest-core\1.3\hamcrest-core-1.3.jar;C:\Users\mario\.m2\repository\com\mysql\mysql-connector-j\8.0.33\mysql-connector-j-8.0.33.jar;C:\Users\mario\.m2\repository\com\google\protobuf\protobuf-java\3.21.9\protobuf-java-3.21.9.jar;"/>
     <property name="sun.cpu.endian" value="little"/>
@@ -30,7 +30,7 @@
     <property name="line.separator" value="&#10;"/>
     <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
     <property name="java.specification.name" value="Java Platform API Specification"/>
-    <property name="surefire.real.class.path" value="C:\Users\mario\AppData\Local\Temp\surefire9024535076673675476\surefirebooter-20250709144718876_3.jar"/>
+    <property name="surefire.real.class.path" value="C:\Users\mario\AppData\Local\Temp\surefire7689166647732631245\surefirebooter-20250709163404318_3.jar"/>
     <property name="user.script" value=""/>
     <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
     <property name="java.runtime.version" value="21.0.2+13-LTS-58"/>
@@ -59,13 +59,13 @@
     <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
     <property name="java.class.version" value="65.0"/>
   </properties>
-  <testcase name="testEliminarUsuario" classname="com.app.subasta.infraestructura.persistencia.UsuarioRepositorioImplTest" time="1.436">
+  <testcase name="testEliminarUsuario" classname="com.app.subasta.infraestructura.persistencia.UsuarioRepositorioImplTest" time="1.801">
     <system-out><![CDATA[***USUARIO GUARDADO CORRECTAMENTE EN LA BASE DE DATOS***
 ️ Usuario eliminado correctamente.
 ✅ testEliminarUsuario pasó correctamente (usuario eliminado)
 ]]></system-out>
   </testcase>
-  <testcase name="testGuardarYBuscarUsuario" classname="com.app.subasta.infraestructura.persistencia.UsuarioRepositorioImplTest" time="0.396">
+  <testcase name="testGuardarYBuscarUsuario" classname="com.app.subasta.infraestructura.persistencia.UsuarioRepositorioImplTest" time="0.074">
     <system-out><![CDATA[ERROR NO SE PUDO GUARDAR EL USUARIO
 🔍 Usuario encontrado por cédula:
 Cédula: 1010101010
@@ -76,13 +76,13 @@ Teléfono: 301301301
 testGuardarYBuscarUsuario pasó correctamente.
 ]]></system-out>
   </testcase>
-  <testcase name="testActualizarUsuario" classname="com.app.subasta.infraestructura.persistencia.UsuarioRepositorioImplTest" time="0.146">
+  <testcase name="testActualizarUsuario" classname="com.app.subasta.infraestructura.persistencia.UsuarioRepositorioImplTest" time="0.049">
     <system-out><![CDATA[ERROR NO SE PUDO GUARDAR EL USUARIO
  Usuario actualizado correctamente.
  testActualizarUsuario pasó correctamente: 888888888 Luis Alberto Torres Rojas - nuevo@correo.com - 3111111111 
 ]]></system-out>
   </testcase>
-  <testcase name="testListarTodos" classname="com.app.subasta.infraestructura.persistencia.UsuarioRepositorioImplTest" time="0.152">
+  <testcase name="testListarTodos" classname="com.app.subasta.infraestructura.persistencia.UsuarioRepositorioImplTest" time="0.058">
     <system-out><![CDATA[ERROR NO SE PUDO GUARDAR EL USUARIO
 ERROR NO SE PUDO GUARDAR EL USUARIO
 testListarTodos: Usuarios encontrados:

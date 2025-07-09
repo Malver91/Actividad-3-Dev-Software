@@ -2,11 +2,16 @@
 package com.app.subasta.infraestructura.persistencia;
 
 import com.app.subasta.aplicacion.usuario.puerto.UsuarioConsultaRepositorio;
+import com.app.subasta.dominio.usuario.Usuario;
 import java.sql.DriverManager;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+
+
+import java.util.List;
+import java.util.ArrayList;
 /**
  *
  * @author MALVER CASTRO
@@ -41,4 +46,36 @@ public class UsuarioConsultaRepositorioImpl implements UsuarioConsultaRepositori
         return total;// restorna el numero de consulta 
     }
     
+    //METODO PARA LISTAR USUARIOS CON MAS DE 10 SUBASTAS - JDBC con SQL:
+    @Override
+    public List<Usuario> listarUsuariosConMasDe10Subastas() {
+    List<Usuario> lista = new ArrayList<>();
+    String sql = """
+        SELECT u.Cedula, u.Nombre, u.Apellidos, u.Email, u.Telefono
+        FROM usuario u
+        JOIN articulo a ON u.Cedula = a.id_usuario
+        GROUP BY u.Cedula
+        HAVING COUNT(a.id_articulo) > 10
+    """;
+
+    try (Connection conn = DriverManager.getConnection(URL, USUARIO, CONTRASENA);
+         PreparedStatement stmt = conn.prepareStatement(sql);
+         ResultSet rs = stmt.executeQuery()) {
+
+        while (rs.next()) {
+            String cedula = rs.getString("Cedula");
+            String nombre = rs.getString("Nombre");
+            String apellidos = rs.getString("Apellidos");
+            String email = rs.getString("Email");
+            String telefono = rs.getString("Telefono");
+
+            lista.add(new Usuario(cedula, nombre, apellidos, email, telefono));
+        }
+
+    } catch (SQLException e) {
+        System.out.println("Error al listar usuarios con más de 10 subastas: " + e.getMessage());
+    }
+
+    return lista;
+}
 }
