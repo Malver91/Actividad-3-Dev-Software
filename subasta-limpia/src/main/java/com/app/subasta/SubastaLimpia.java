@@ -4,6 +4,7 @@ package com.app.subasta;
 
 import com.app.subasta.dominio.usuario.Usuario; // Importamos la clase Usuario
 import com.app.subasta.infraestructura.persistencia.UsuarioRepositorioImpl; // Importamos el repositorio real
+import com.app.subasta.infraestructura.persistencia.UsuarioConsultaRepositorioImpl;
 
 public class SubastaLimpia {
 
@@ -17,7 +18,7 @@ public class SubastaLimpia {
             "Florez",// Apellidos
             "Florez@gmail.com.com",// Email
             "3021234567" // Teléfono
-        );
+             );
         
 
              //PROBANDO EL METODO BUSCAR POR CEDULA
@@ -29,7 +30,7 @@ public class SubastaLimpia {
             System.out.println("+-+-+Usuario encontrado: " + encontrado);
         } else {
             System.out.println("-+-+-+ Usuario no encontrado -+-+-+-");
-}
+          }
              //PROBANDO METODO LISTAR TODOS
         // Llamamos al método guardar() para registrar al usuario en la base de datos
         repositorio.guardar(nuevoUsuario);
@@ -39,7 +40,7 @@ public class SubastaLimpia {
 
         for (Usuario u : usuarios) {
         System.out.println("- " + u);
-}
+         }
         //PROBANDO METODO DE ACTUALIZAR
         Usuario usuarioActualizado = new Usuario(
         "123456789",      // Cedula (misma de antes)
@@ -48,7 +49,7 @@ public class SubastaLimpia {
         "nuevoemail@gmail.com", // Nuevo email
         "3119998877"      // Nuevo teléfono
                 
-);
+           );
         repositorio.actualizar(usuarioActualizado);
 
 
@@ -66,12 +67,23 @@ public class SubastaLimpia {
                 System.out.println(" Confirmacion: el usuario fue eliminado.");
             } else {
                 System.out.println(" El usuario aún existe: " + eliminado);
-                }
+                }  
+            
+      //  CONSULTA 1/50: TOTAL DE USUARIOS REGISTRADOS EN LA PLATAFORMA
 
-        
-               
+        // 1. Importamos el adaptador que ejecuta el SQL (desde infraestructura)
+         com.app.subasta.aplicacion.usuario.puerto.UsuarioConsultaRepositorio consultaRepo =
+            new com.app.subasta.infraestructura.persistencia.UsuarioConsultaRepositorioImpl();
 
+         // 2. Creamos el caso de uso pasándole el repositorio como dependencia
+         com.app.subasta.aplicacion.usuario.servicio.ConsultarTotalUsuariosCasoUso casoUso =
+            new com.app.subasta.aplicacion.usuario.servicio.ConsultarTotalUsuariosCasoUso(consultaRepo);
+
+         // 3. Ejecutamos el caso de uso y mostramos el resultado
+         int totalUsuarios = casoUso.ejecutar();
+         System.out.println("Total de usuarios registrados: " + totalUsuarios);      
+            
     }
     
-    
+     
 }

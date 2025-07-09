@@ -1,4 +1,7 @@
+com\app\subasta\infraestructura\persistencia\UsuarioConsultaRepositorioImpl.class
 com\app\subasta\dominio\usuario\UsuarioRepositorio.class
-com\app\subasta\SubastaLimpia.class
 com\app\subasta\dominio\usuario\Usuario.class
+com\app\subasta\aplicacion\usuario\puerto\UsuarioConsultaRepositorio.class
+com\app\subasta\SubastaLimpia.class
+com\app\subasta\aplicacion\usuario\servicio\ConsultarTotalUsuariosCasoUso.class
 com\app\subasta\infraestructura\persistencia\UsuarioRepositorioImpl.class
