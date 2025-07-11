@@ -6,6 +6,8 @@ import com.app.subasta.dominio.usuario.Usuario; // Importamos la clase Usuario
 import com.app.subasta.infraestructura.persistencia.UsuarioRepositorioImpl; // Importamos el repositorio real
 import com.app.subasta.infraestructura.persistencia.UsuarioConsultaRepositorioImpl;
 
+
+
 public class SubastaLimpia {
 
     public static void main(String[] args) {
@@ -81,7 +83,31 @@ public class SubastaLimpia {
 
          // 3. Ejecutamos el caso de uso y mostramos el resultado
          int totalUsuarios = casoUso.ejecutar();
-         System.out.println("Total de usuarios registrados: " + totalUsuarios);      
+         System.out.println("Total de usuarios registrados: " + totalUsuarios);   
+         
+         // CONSULTA #4: Cantidad de ofertas realizadas por cada usuario en las últimas dos semanas
+    System.out.println("\n===== CONSULTA #4: Ofertas por usuario en las últimas 2 semanas =====");
+
+    // Instanciamos el adaptador JDBC
+        com.app.subasta.aplicacion.oferta.puerto.OfertaConsultaRepositorio.OfertaConsultaRepositorio ofertaRepo =
+            new com.app.subasta.infraestructura.persistencia.OfertaConsultaRepositorioImpl();
+
+    // Creamos el caso de uso con el repositorio como dependencia
+    com.app.subasta.aplicacion.oferta.servicio.ConsultarOfertasUltimasDosSemanasCasoUso casoOfertas =
+            new com.app.subasta.aplicacion.oferta.servicio.ConsultarOfertasUltimasDosSemanasCasoUso(ofertaRepo);
+
+    // Ejecutamos y mostramos resultados
+    java.util.List<com.app.subasta.infraestructura.dto.OfertaResumenDTO> resumen =
+            casoOfertas.ejecutar();
+
+    if (resumen.isEmpty()) {
+        System.out.println("️ No se encontraron ofertas en las últimas 2 semanas.");
+    } else {
+        for (var dto : resumen) {
+            System.out.println("->️  " + dto);
+        }
+    }
+         
             
     }
     

@@ -1,4 +1,4 @@
-
+//Aquí deben ir todos los adaptadores que implementan interfaces (puertos OUT).
 package com.app.subasta.infraestructura.persistencia;
 
 import com.app.subasta.dominio.usuario.Usuario; // Importamos la clase Usuario
