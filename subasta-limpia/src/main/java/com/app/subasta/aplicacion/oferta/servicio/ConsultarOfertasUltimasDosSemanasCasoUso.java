@@ -1,7 +1,7 @@
 
 package com.app.subasta.aplicacion.oferta.servicio;
 
-import com.app.subasta.aplicacion.oferta.puerto.OfertaConsultaRepositorio.OfertaConsultaRepositorio;
+import com.app.subasta.aplicacion.oferta.puerto.OfertaConsultaRepositorio;
 import com.app.subasta.infraestructura.dto.OfertaResumenDTO;
 
 import java.util.List;

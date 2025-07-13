@@ -5,7 +5,10 @@ package com.app.subasta;
 import com.app.subasta.dominio.usuario.Usuario; // Importamos la clase Usuario
 import com.app.subasta.infraestructura.persistencia.UsuarioRepositorioImpl; // Importamos el repositorio real
 import com.app.subasta.infraestructura.persistencia.UsuarioConsultaRepositorioImpl;
-
+import com.app.subasta.aplicacion.articulo.servicio.ConsultarFechasLimiteSubastasActivasCasoUso;
+import com.app.subasta.aplicacion.oferta.puerto.OfertaConsultaRepositorio;
+import com.app.subasta.infraestructura.persistencia.ArticuloConsultaRepositorioImpl;
+import java.util.List;
 
 
 public class SubastaLimpia {
@@ -89,8 +92,8 @@ public class SubastaLimpia {
     System.out.println("\n===== CONSULTA #4: Ofertas por usuario en las últimas 2 semanas =====");
 
     // Instanciamos el adaptador JDBC
-        com.app.subasta.aplicacion.oferta.puerto.OfertaConsultaRepositorio.OfertaConsultaRepositorio ofertaRepo =
-            new com.app.subasta.infraestructura.persistencia.OfertaConsultaRepositorioImpl();
+        OfertaConsultaRepositorio ofertaRepo = new com.app.subasta.infraestructura.persistencia.OfertaConsultaRepositorioImpl();
+
 
     // Creamos el caso de uso con el repositorio como dependencia
     com.app.subasta.aplicacion.oferta.servicio.ConsultarOfertasUltimasDosSemanasCasoUso casoOfertas =
@@ -107,7 +110,31 @@ public class SubastaLimpia {
             System.out.println("->️  " + dto);
         }
     }
-         
+        
+    
+            // CONSULTA 5: Consultar fechas límite de subastas activas
+        System.out.println("\n===== CONSULTA #5: Fechas límite de subastas activas =====");
+
+        // Creamos el repositorio (adaptador JDBC)
+        ArticuloConsultaRepositorioImpl repositorioFechas = new ArticuloConsultaRepositorioImpl();
+
+        // Creamos el caso de uso
+        ConsultarFechasLimiteSubastasActivasCasoUso casoUsoFechas =
+                new ConsultarFechasLimiteSubastasActivasCasoUso(repositorioFechas);
+
+        // Ejecutamos el caso de uso
+        List<String> fechasLimite = casoUsoFechas.ejecutar();
+
+        // Mostramos los resultados
+        if (fechasLimite.isEmpty()) {
+            System.out.println(" No hay subastas activas con fecha límite.");
+        } else {
+            System.out.println("️ Fechas límite de subastas activas:");
+            for (String fecha : fechasLimite) {
+                System.out.println(" - " + fecha);
+            }
+        }
+
             
     }
     
